@@ -10,14 +10,19 @@ public class EmpWageBuilder {
          int WAGE_PER_HOUR = 20;
          int IS_ABSENT = 0;
          int MONTHLY_WORKING_DAYS = 20;
+         int TOTAL_WORKING_HOURS = 100;
+
         //VARIABLES
         int empHours = 0;
         int dailyEmpWage = 0;
         int empMonthlyWages = 0;
+        int workingHours = 0;
+        int workingDays = 0;
          System.out.println("Welcome to Employee Wage Computation Program");
 
              //COMPUTATION
-        for ( int day = 1; day <= MONTHLY_WORKING_DAYS; day++) {
+        while (  workingHours < TOTAL_WORKING_HOURS && workingDays < MONTHLY_WORKING_DAYS )    {
+                workingDays++;
              int empCheck = (int) (Math.random() * 10 ) % 3;
              switch (empCheck)  {
                  case 1:
@@ -32,7 +37,7 @@ public class EmpWageBuilder {
                          System.out.println("Employee Absent");
                          empHours = 0;
             }
-
+                    workingHours += empHours;
              //EMPLOYEE WAGE COMPUTATION
              dailyEmpWage = empHours * WAGE_PER_HOUR;
              empMonthlyWages += dailyEmpWage;
