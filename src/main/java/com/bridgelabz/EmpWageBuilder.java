@@ -2,38 +2,39 @@ package com.bridgelabz;
 
 public class EmpWageBuilder {
 
+    //CONSTANTS
+    static final int IS_FULL_TIME = 1;
+    static final int IS_PART_TIME = 2;
+    static final int WAGE_PER_HOUR = 20;
+    static final int MONTHLY_WORKING_DAYS = 20;
+    static final int TOTAL_WORKING_HOURS = 100;
 
     public static void main(String[] args) {
-        //CONSTANTS
-         int IS_FULL_TIME = 1;
-         int IS_PART_TIME = 2;
-         int WAGE_PER_HOUR = 20;
-         int IS_ABSENT = 0;
-         int MONTHLY_WORKING_DAYS = 20;
-         int TOTAL_WORKING_HOURS = 100;
+
 
         //VARIABLES
-        int empHours = 0;
-        int dailyEmpWage = 0;
+        int empHours;
+        int dailyEmpWage;
         int empMonthlyWages = 0;
         int workingHours = 0;
         int workingDays = 0;
-         System.out.println("Welcome to Employee Wage Computation Program");
+
+        System.out.println("Welcome to Employee Wage Computation Program");
 
              //COMPUTATION
         while (  workingHours < TOTAL_WORKING_HOURS && workingDays < MONTHLY_WORKING_DAYS )    {
                 workingDays++;
              int empCheck = (int) (Math.random() * 10 ) % 3;
              switch (empCheck)  {
-                 case 1:
+                 case IS_FULL_TIME:
                          System.out.println("Employee is Present");
                          empHours = 8;
                          break;
-                 case 2:
+                 case IS_PART_TIME:
                          System.out.println("Employee Present Part Time");
                          empHours = 4;
                          break;
-                 case 0:
+                 default:
                          System.out.println("Employee Absent");
                          empHours = 0;
             }
