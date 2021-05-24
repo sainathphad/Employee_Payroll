@@ -6,12 +6,25 @@ public class EmpWageBuilder {
     private static final int IS_FULL_TIME = 1;
     private static final int IS_PART_TIME = 2;
 
+    int wagePrHr, maxHr, maxDay, empMonthlyWages;
+    String companyName;
 
-    public static int calculateEmpWage(String companyName, int wagePrHr, int maxHr, int maxDay) {
+    public EmpWageBuilder(String companyName, int wagePrHr, int maxHr, int maxDay) {
+        this.companyName = companyName;
+        this.wagePrHr = wagePrHr;
+        this.maxHr = maxHr;
+        this.maxDay = maxDay;
+    }
+
+    @Override
+    public String toString() {
+        return "Toatal Emp Wage for Company: " +companyName+ " is: " + empMonthlyWages;
+    }
+
+    public void calculateEmpWage() {
         //VARIABLES
         int empHours;
         int dailyEmpWage;
-        int empMonthlyWages = 0;
         int workingHours = 0;
         int workingDays = 0;
 
@@ -35,15 +48,18 @@ public class EmpWageBuilder {
             dailyEmpWage = empHours * wagePrHr;
             empMonthlyWages += dailyEmpWage;
         }
-        System.out.println("Monthly Emp Wage For company: " +companyName+ " is: " +empMonthlyWages);
-        return empMonthlyWages;
+
     }
 
     public static void main(String[] args) {
 
-        calculateEmpWage("Dmart",20,5,10);
-        calculateEmpWage("CG",10,6,20);
-
+        System.out.println("Welcome to Employee Wage Computation Program");
+        EmpWageBuilder dMart = new EmpWageBuilder("dMart",20,100,20);
+        dMart.calculateEmpWage();
+        System.out.println("Employee Wage for dMart: " + dMart);
+        EmpWageBuilder cg = new EmpWageBuilder("cg",15,60,10);
+        cg.calculateEmpWage();
+        System.out.println("Employee Wage for cg: " + cg);
 
     }
 }
