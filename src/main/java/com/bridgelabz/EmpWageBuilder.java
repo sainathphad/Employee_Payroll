@@ -1,4 +1,7 @@
 package com.bridgelabz;
+
+import java.util.ArrayList;
+
 interface empWageMethod {
 
     public void calculateEmpWage(CompanyEmpWage obj);
@@ -49,15 +52,15 @@ public class EmpWageBuilder implements empWageMethod {
         EmpWageBuilder empWageBuilder = new EmpWageBuilder();
 
         // DECLARATION OF ARRAY
-        CompanyEmpWage[] company = new CompanyEmpWage[3];
+        ArrayList<CompanyEmpWage> company = new ArrayList<>();
 
         // OBJECT CREATION
-        company[0] = new CompanyEmpWage("DMart",20,40,20);
-        empWageBuilder.calculateEmpWage(company[0]);
-        company[1] = new CompanyEmpWage("Bridgelabz",25,60,20);
-        empWageBuilder.calculateEmpWage(company[1]);
-        company[2] = new CompanyEmpWage("Reliance",15,45,25);
-        empWageBuilder.calculateEmpWage(company[2]);
+        company.add( new CompanyEmpWage("DMart",20,40,20));
+        empWageBuilder.calculateEmpWage(company.get(0));
+        company.add( new CompanyEmpWage("Bridgelabz",25,60,20));
+        empWageBuilder.calculateEmpWage(company.get(1));
+        company.add( new CompanyEmpWage("Reliance",15,45,25));
+        empWageBuilder.calculateEmpWage(company.get(2));
 
     }
 }
