@@ -17,7 +17,6 @@ public class EmpWageBuilder implements empWageMethod {
     public void calculateEmpWage(CompanyEmpWage companyEmpWage) {
         //VARIABLES
         int empHours;
-        int dailyEmpWage;
         int workingHours = 0;
         int workingDays = 0;
 
@@ -36,11 +35,15 @@ public class EmpWageBuilder implements empWageMethod {
             }
             workingHours += empHours;
 
-            dailyEmpWage = empHours * companyEmpWage.wagePrHr;
+            companyEmpWage.dailyEmpWage = empHours * companyEmpWage.wagePrHr;
 
-            companyEmpWage.empMonthlyWages += dailyEmpWage;
+            System.out.println("Day#: " + workingDays + " Emp Hr: " + empHours);
+            System.out.println("Daily Wage of " + companyEmpWage.companyName + " Employee is: " + companyEmpWage.dailyEmpWage + "\n");
         }
-        System.out.println( "Total Wage Of " + companyEmpWage.companyName + " Employee is: " + companyEmpWage.empMonthlyWages );
+        companyEmpWage.empMonthlyWages = workingHours * companyEmpWage.wagePrHr;
+
+        System.out.println( "Total Wage Of " + companyEmpWage.companyName + " Employee is: "
+                                                           + companyEmpWage.empMonthlyWages + "\n" );
 
     }
 
@@ -57,8 +60,10 @@ public class EmpWageBuilder implements empWageMethod {
         // OBJECT CREATION
         company.add( new CompanyEmpWage("DMart",20,40,20));
         empWageBuilder.calculateEmpWage(company.get(0));
+
         company.add( new CompanyEmpWage("Bridgelabz",25,60,20));
         empWageBuilder.calculateEmpWage(company.get(1));
+
         company.add( new CompanyEmpWage("Reliance",15,45,25));
         empWageBuilder.calculateEmpWage(company.get(2));
 
@@ -67,7 +72,7 @@ public class EmpWageBuilder implements empWageMethod {
 
 // CLASS COMPANY EMP WAGE
 class CompanyEmpWage {
-    int wagePrHr, maxHr, maxDay, empMonthlyWages;
+    int wagePrHr, maxHr, maxDay, dailyEmpWage, empMonthlyWages;
     String companyName;
 
     //CONSTRUCTOR
