@@ -1,6 +1,10 @@
 package com.bridgelabz;
+interface empWageMethod {
 
-public class EmpWageBuilder {
+    public void calculateEmpWage(CompanyEmpWage obj);
+}
+
+public class EmpWageBuilder implements empWageMethod {
 
     //CONSTANTS
     private static final int IS_FULL_TIME = 1;
