@@ -40,14 +40,17 @@ public class EmpWageBuilder implements empWageMethod {
         System.out.println( "Total Wage Of " + companyEmpWage.companyName + " Employee is: " + companyEmpWage.empMonthlyWages );
 
     }
+
     // MAIN METHOD
     public static void main(String[] args) {
 
         System.out.println( " Welcome to Employee Wage Computation Program " );
 
         EmpWageBuilder empWageBuilder = new EmpWageBuilder();
+
         // DECLARATION OF ARRAY
         CompanyEmpWage[] company = new CompanyEmpWage[3];
+
         // OBJECT CREATION
         company[0] = new CompanyEmpWage("DMart",20,40,20);
         empWageBuilder.calculateEmpWage(company[0]);
@@ -58,10 +61,12 @@ public class EmpWageBuilder implements empWageMethod {
 
     }
 }
+
 // CLASS COMPANY EMP WAGE
 class CompanyEmpWage {
     int wagePrHr, maxHr, maxDay, empMonthlyWages;
     String companyName;
+
     //CONSTRUCTOR
     public CompanyEmpWage(String companyName, int wagePrHr, int maxHr, int maxDay) {
         this.companyName = companyName;
